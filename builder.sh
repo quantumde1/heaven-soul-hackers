@@ -10,3 +10,4 @@ hpffutil pack res/bg.bin res/backgrounds/*
 hpffutil pack res/tex.bin res/tex/*
 hpffutil pack res/enemies.bin res/enemies/*
 hpffutil pack res/faces.bin res/faces/*
+hpffutil pack res/data.bin res/data/*
