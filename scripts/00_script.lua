@@ -554,7 +554,6 @@ function startDialogCoroutine()
                     coroutine.yield()
                 end
                 ::saved::
-                --[[
                 if userSave == true then
                     draw2Dtexture(1)
                     dialogBox("Hitomi", {"Hey, what should we do?"}, "hitomi_sad.png", 0, {"Save", "Leave", "Gun-type PC"}, 1)
@@ -695,6 +694,8 @@ function startDialogCoroutine()
                     unload2Dtexture(4)
                     stopMusic()
                     disallowControl()
+                    loadMusic("paradigm_x.mp3")
+                    playMusic()
                     while getTime() - startTime < 0.5 do
                         coroutine.yield() -- Wait for 2 seconds
                     end
@@ -723,11 +724,8 @@ function startDialogCoroutine()
                         coroutine.yield()
                     end
                     stopDraw2Dcharacter(0)
-                    ]]--
                     setFriendlyZone(0)
                     --initBattle(3, "test", "test", 1)
-                    loadMusic("paradigm_x.mp3")
-                    playMusic()
                     allowDemons({"DEV09B", "DEV0FA", "DEV02A"})
                     showUI()
                     allowControl()
