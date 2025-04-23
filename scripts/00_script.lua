@@ -52,16 +52,12 @@ loadScene("res/scene1.json")
 function startDialogCoroutine()
     dialogCoroutine = coroutine.create(function()
         if dialogStage == 1 then
-            draw2Dcharacter("sans_staying.png", getScreenWidth() /2 - 150, getScreenHeight()/2 - 100, 0.3, 0)
-            dialogBox("Sans", {"take care of yourself, kid. 'cause someone really cares about you."}, "empty", -1, {""}, 0)
-            while isDialogExecuted() do
-                coroutine.yield() -- Ожидание завершения диалога
-            end
-            stopDraw2Dcharacter(0)
+            -- empty
             dialogStage = 2
         else
             local startTime = getTime() -- Get the current time
             -- Начало диалога с Сергеем
+            Begin2D()
             setFriendlyZone(1)
             hideUI()
             local debugWalk
@@ -692,6 +688,7 @@ function startDialogCoroutine()
                     unload2Dtexture(2)
                     unload2Dtexture(3)
                     unload2Dtexture(4)
+                    End2D()
                     stopMusic()
                     disallowControl()
                     loadMusic("paradigm_x.mp3")
@@ -730,7 +727,7 @@ function startDialogCoroutine()
                     showUI()
                     allowControl()
                 end
-            --end
+            end
         end
     end)
 end
