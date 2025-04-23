@@ -21,6 +21,34 @@
                 "z": 5
             },
             "rotationAngle": 0
+        },
+        {
+            "name": "wall_collision",
+            "type": "collision",
+            "position": {
+                "x": 10,
+                "y": 0,
+                "z": 0
+            },
+            "size": {
+                "x": 15,
+                "y": 15,
+                "z": 15
+            }
+        },
+        {
+            "name": "tree_collision",
+            "type": "collision",
+            "position": {
+                "x": 10,
+                "y": 0,
+                "z": 10
+            },
+            "size": {
+                "x": 15,
+                "y": 15,
+                "z": 15
+            }
         }
     ],
     "environment": {

@@ -720,9 +720,8 @@ function startDialogCoroutine()
                     while isDialogExecuted() do
                         coroutine.yield()
                     end
-                    stopDraw2Dcharacter(0)
                     setFriendlyZone(0)
-                    --initBattle(3, "test", "test", 1)
+                    --initBattle(1, {"DEV09B"});
                     allowDemons({"DEV09B", "DEV0FA", "DEV02A"})
                     showUI()
                     allowControl()
@@ -757,12 +756,13 @@ function _2dEventLoop()
 end
 
 shadersState(0)
-local dungeonCrawler = true
+local dungeonCrawler = false
 if dungeonCrawler == true then
     changeCameraPosition(0.0, 7.0, 0.1)
     changeCameraTarget(0.0, 7.0, 0.0)
     changeCameraUp(0.0, 1.0, 0.0)
     drawPlayerModel(0)
+    setPlayerSize(0.020)
     dungeonCrawlerMode(1)
 else
     setPlayerModel("res/mc.glb", 0.020)
