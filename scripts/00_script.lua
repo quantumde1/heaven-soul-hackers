@@ -731,27 +731,9 @@ function startDialogCoroutine()
     end)
 end
 
-
-
--- 3d event loop
-function _3dEventLoop()
-    if checkCoordinatesEquality(getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, -10) == true and dialogStage == 0 then
-        showHint("Press "..getButtonName("dialog").." to talk with Sans.")
-        if isKeyPressed(getButtonName("dialog")) then
-            dialogStage = 1
-            disallowControl()
-            hideHint()
-            startDialogCoroutine()
-        end
-    else
-        hideHint()
-    end
-end
-
--- 2d event loop, but everything must be in coroutine
-function _2dEventLoop()
+function EventLoop()
     if dialogCoroutine and coroutine.status(dialogCoroutine) ~= "dead" then
-        coroutine.resume(dialogCoroutine) -- Возобновление выполнения корутины
+        coroutine.resume(dialogCoroutine)
     end
 end
 
