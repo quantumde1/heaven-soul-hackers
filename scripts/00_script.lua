@@ -552,7 +552,7 @@ function startDialogCoroutine()
                 ::saved::
                 if userSave == true then
                     draw2Dtexture(1)
-                    dialogBox("Hitomi", {"Hey, what should we do?"}, "hitomi_sad.png", 0, {"Save", "Leave", "Gun-type PC"}, 1)
+                    dialogBox("Hitomi", {"Hey, what should we do?"}, "hitomi_sad.png", 0, {"Сосать", "Хуй", "Gun-type PC"}, 1)
                     while isDialogExecuted() do
                         coroutine.yield()
                     end
@@ -725,29 +725,39 @@ function startDialogCoroutine()
                     allowDemons({"DEV09B", "DEV0FA", "DEV02A"})
                     showUI()
                     allowControl()
+                    --loadScript("scripts/test.lua")
                 end
             end
         end
     end)
 end
 
+-- event loop, but everything must be in coroutine
 function EventLoop()
     if dialogCoroutine and coroutine.status(dialogCoroutine) ~= "dead" then
-        coroutine.resume(dialogCoroutine)
+        coroutine.resume(dialogCoroutine) -- Возобновление выполнения корутины
     end
 end
 
 shadersState(0)
-local dungeonCrawler = false
+setPlayerModel("res/mc.glb", 1.0, 1.0, 1.0)
+addPartyMember(120, 0, "quantumde1", 1, 0, 0)
+walkAnimationValue(10)
+idleAnimationValue(2)
+runAnimationValue(6)
+configureInventoryTabs({"Items", "System"})
+addToInventoryTab("Exit game", 1)
+local dungeonCrawler = true
 if dungeonCrawler == true then
+    animationsState(1)
     changeCameraPosition(0.0, 7.0, 0.1)
     changeCameraTarget(0.0, 7.0, 0.0)
     changeCameraUp(0.0, 1.0, 0.0)
     drawPlayerModel(0)
-    setPlayerSize(0.020)
+    setPlayerSize(0.020, 0.020, 0.020)
     dungeonCrawlerMode(1)
 else
-    setPlayerModel("res/mc.glb", 0.020)
+    setPlayerModel("res/mc.glb", 0.020, 0.020, 0.020)
     changeCameraPosition(0.0, 8.0, 10.0)
     changeCameraTarget(0.0, 6.0, 0.0)
     changeCameraUp(0.0, 1.0, 0.0)
